@@ -16,6 +16,21 @@ class Solution(object):
 
         return False
 
+# using hare and tortoise algorithm
+class Solution(object):
+    def hasCycle(self, head):
+        if head is None:
+            return False
+        fast = head
+        while fast and fast.next:
+            head = head.next
+            fast = fast.next.next
+            if fast is head:
+                return True
+        return False
+
+
+
 head = [1,2]
 node = ListNode(head[0])
 node.next = ListNode(head[1])
