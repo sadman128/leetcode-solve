@@ -19,7 +19,19 @@ class Solution(object):
         root.next = ListNode(head.val)
         return node
 
+class Solution(object):
+    def reverseList(self, head):
+        node = None
+        current = head
 
+        while current:
+            temp  = current.next
+            current.next = node
+            node = current
+            current = temp
+
+        return node
+        
 head = [1,2,3,4,5]
 node = ListNode(head[0])
 node.next = ListNode(head[1])
