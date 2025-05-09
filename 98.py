@@ -6,21 +6,21 @@ class TreeNode(object):
 class Solution(object):
     def isValidBST(self, root):
 
-        def dfs(node, value):
+        def traverse(node, value):
             if not node:
                 return
-            dfs(node.left, value)
+            traverse(node.left, value)
             value.append(node.val)
-            dfs(node.right, value)
+            traverse(node.right, value)
 
         def is_sorted(nums):
             for i in range(1, len(nums)):
-                if nums[i] <= nums[i - 1]: 
+                if nums[i] <= nums[i - 1]:
                     return False
             return True
 
         value = []
-        dfs(root, value)
+        traverse(root, value)
         return is_sorted(value)
 
 
